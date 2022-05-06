@@ -69,7 +69,7 @@ module.exports = {
                   // e.g. `{ ...foo }`
                   return;
                 }
-                definedClasses[property.key.name] = property;
+                definedClasses[property.key.value || property.key.name] = property;
               });
             }
           }
