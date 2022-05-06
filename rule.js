@@ -34,7 +34,7 @@ module.exports = {
     return {
       CallExpression(node) {
         if (node.callee.name === 'makeStyles') {
-          const styles = node.arguments[0];
+          const styles = node.parent.arguments[0];
 
           if (styles && styles.type === 'ArrowFunctionExpression') {
             const { body } = styles;

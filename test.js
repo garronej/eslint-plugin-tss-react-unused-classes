@@ -10,27 +10,27 @@ const ruleTester = new eslint.RuleTester({
 });
 ruleTester.run('warn-unused-classes', rule, {
   valid: [
-    `const useStyles = makeStyles(() => ({
+    `const useStyles = makeStyles()(() => ({
       testClass: {
         backgroundColor: 'red'
       }
     }))
     
     const Component = () => {
-      const classes = useStyles()
+      const { classes } = useStyles()
       return <div className={classes.testClass}>test</div>
     }`,
   ],
   invalid: [
     {
-      code: `const useStyles = makeStyles(() => ({
+      code: `const useStyles = makeStyles()(() => ({
         testClass: {
           backgroundColor: 'red'
         }
       }))
       
       const Component = () => {
-        const classes = useStyles()
+        const { classes } = useStyles()
         return <div>test</div>
       }`,
       errors: [{
