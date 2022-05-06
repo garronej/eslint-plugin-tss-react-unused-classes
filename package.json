@@ -1,25 +1,28 @@
 {
   "name": "eslint-plugin-tss-unused-classes",
   "version": "0.0.0",
-  "description": "eslint plugin to detect unused material-ui styling classes",
+  "description": "eslint plugin to detect unused tss-react styling classes",
   "main": "index.js",
   "scripts": {
     "test": "mocha test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jens-ox/eslint-plugin-material-ui-unused-classes.git"
+    "url": "git+https://github.com/garronej/eslint-plugin-tss-react-unused-classes.git"
   },
   "keywords": [
     "eslint",
-    "material-ui"
+    "tss-react",
+    "material-ui",
+    "mui",
+    "jss"
   ],
   "author": "Jens Ochsenmeier, u/garronej",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jens-ox/eslint-plugin-material-ui-unused-classes/issues"
+    "url": "https://github.com/garronej/eslint-plugin-tss-react-unused-classes/issues"
   },
-  "homepage": "https://github.com/jens-ox/eslint-plugin-material-ui-unused-classes#readme",
+  "homepage": "https://github.com/garronej/eslint-plugin-tss-react-unused-classes#readme",
   "peerDependencies": {
     "eslint": "^7.14.0"
   },
