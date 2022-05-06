@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-tss-unused-classes",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "eslint plugin to detect unused tss-react styling classes",
   "main": "index.js",
   "scripts": {
