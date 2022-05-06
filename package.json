@@ -1,5 +1,5 @@
 {
-  "name": "eslint-plugin-mui-unused-classes",
+  "name": "eslint-plugin-tss-unused-classes",
   "version": "1.0.3",
   "description": "eslint plugin to detect unused material-ui styling classes",
   "main": "index.js",

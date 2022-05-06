@@ -1,6 +1,6 @@
-# Detect unused Material-UI classes
+# Detect unused tss-react classes
 
-This eslint plugin lets you detect unused Material UI classes:
+This eslint plugin lets you detect unused [tss-react](https://tss-react.dev) classes:
 
 ![Example image of the rule working](./.github/preview.png)
 
@@ -8,7 +8,7 @@ This eslint plugin lets you detect unused Material UI classes:
 
 1. Add the dependency:
 ```sh
-yarn add --dev eslint-plugin-mui-unused-classes
+yarn add --dev eslint-plugin-tss-unused-classes
 ```
 
 2. Add it at the end of your plugin list in your `.eslintrc.js`:
@@ -17,7 +17,7 @@ module.exports = {
   // ...
   plugins: [
     // ...
-    'mui-unused-classes'
+    'tss-unused-classes'
   ]
 }
 ```
@@ -29,10 +29,10 @@ module.exports = {
   // ...
   plugins: [
     // ...
-    'mui-unused-classes'
+    'tss-unused-classes'
   ],
   rules: {
-    'mui-unused-classes/unused-classes': 2
+    'tss-unused-classes/unused-classes': 2
   }
 }
 ```

@@ -4,9 +4,9 @@ module.exports = {
   },
   configs: {
     recommended: {
-      plugins: ['mui-unused-classes'],
+      plugins: ['tss-unused-classes'],
       rules: {
-        'mui-unused-classes/unused-classes': 'warn'
+        'tss-unused-classes/unused-classes': 'warn'
       }
     }
   }
