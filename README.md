@@ -8,7 +8,7 @@ This eslint plugin lets you detect unused Material UI classes:
 
 1. Add the dependency:
 ```sh
-npm i --save-dev eslint-plugin-mui-unused-classes
+yarn add --dev eslint-plugin-mui-unused-classes
 ```
 
 2. Add it at the end of your plugin list in your `.eslintrc.js`:
