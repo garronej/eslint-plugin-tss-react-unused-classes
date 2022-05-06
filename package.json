@@ -14,7 +14,7 @@
     "eslint",
     "material-ui"
   ],
-  "author": "Jens Ochsenmeier",
+  "author": "Jens Ochsenmeier, u/garronej",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/jens-ox/eslint-plugin-material-ui-unused-classes/issues"
