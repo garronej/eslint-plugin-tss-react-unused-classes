@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/garronej/eslint-plugin-tss-react-unused-classes.git"
+    "url": "git+https://github.com/garronej/eslint-plugin-tss-unused-classes.git"
   },
   "keywords": [
     "eslint",
@@ -20,9 +20,9 @@
   "author": "Jens Ochsenmeier, u/garronej",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/garronej/eslint-plugin-tss-react-unused-classes/issues"
+    "url": "https://github.com/garronej/eslint-plugin-tss-unused-classes/issues"
   },
-  "homepage": "https://github.com/garronej/eslint-plugin-tss-react-unused-classes#readme",
+  "homepage": "https://github.com/garronej/eslint-plugin-tss-unused-classes#readme",
   "peerDependencies": {
     "eslint": "^7.14.0"
   },
