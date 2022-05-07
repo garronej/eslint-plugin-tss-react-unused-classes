@@ -52,4 +52,12 @@ module.exports = {
 [Example project](https://github.com/InseeFrLab/onyxia-ui)
 
 
+## Disabling warnings
+
+In case of false positive, disabling the warning:  
+
+- For a line: `// eslint-disable-next-line tss-unused-classes/unused-classes`
+- For the entire file: `// eslint-disable-next-line tss-unused-classes/unused-classes`
+
+
 
