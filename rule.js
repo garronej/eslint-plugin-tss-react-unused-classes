@@ -33,47 +33,76 @@ module.exports = {
 
     return {
       CallExpression(node) {
-        if (node.callee.name === 'makeStyles') {
+        if (node.callee.name !== 'makeStyles') {
+          return;
+        }
+
+        const stylesObj = (() => {
+
           const styles = node.parent.arguments[0];
 
-          if (styles && styles.type === 'ArrowFunctionExpression') {
-            const { body } = styles;
-
-            let stylesObj;
-            if (body.type === 'ObjectExpression') {
-              stylesObj = body;
-            } else if (body.type === 'BlockStatement') {
-              body.body.forEach((bodyNode) => {
-                if (
-                  bodyNode.type === 'ReturnStatement' &&
-                  bodyNode.argument.type === 'ObjectExpression'
-                ) {
-                  stylesObj = bodyNode.argument;
-                }
-              });
-            }
-
-            if (stylesObj) {
-              stylesObj.properties.forEach((property) => {
-                if (property.computed) {
-                  // Skip over computed properties for now.
-                  // e.g. `{ [foo]: { ... } }`
-                  return;
-                }
-
-                if (
-                  property.type === 'ExperimentalSpreadProperty' ||
-                  property.type === 'SpreadElement'
-                ) {
-                  // Skip over object spread for now.
-                  // e.g. `{ ...foo }`
-                  return;
-                }
-                definedClasses[property.key.value || property.key.name] = property;
-              });
-            }
+          if (!styles) {
+            return undefined;
           }
+
+          switch (styles.type) {
+            case "ObjectExpression":
+              return styles;
+            case "ArrowFunctionExpression": {
+
+              const { body } = styles;
+
+              switch (body.type) {
+                case 'ObjectExpression': return body;
+                case 'BlockStatement': {
+
+                  let stylesObj = undefined;
+
+                  body.body.forEach(bodyNode => {
+                    if (
+                      bodyNode.type === 'ReturnStatement' &&
+                      bodyNode.argument.type === 'ObjectExpression'
+                    ) {
+                      stylesObj = bodyNode.argument;
+                    }
+                  });
+
+                  return stylesObj;
+
+                }
+
+              }
+
+            } break;
+          }
+
+          return undefined;
+
+        })();
+
+        if (stylesObj === undefined) {
+          return;
         }
+
+        stylesObj.properties.forEach((property) => {
+          if (property.computed) {
+            // Skip over computed properties for now.
+            // e.g. `{ [foo]: { ... } }`
+            return;
+          }
+
+          if (
+            property.type === 'ExperimentalSpreadProperty' ||
+            property.type === 'SpreadElement'
+          ) {
+            // Skip over object spread for now.
+            // e.g. `{ ...foo }`
+            return;
+          }
+          definedClasses[property.key.value || property.key.name] = property;
+        });
+
+
       },
 
       MemberExpression(node) {

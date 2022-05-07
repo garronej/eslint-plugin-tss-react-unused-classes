@@ -47,5 +47,20 @@ ruleTester.run('warn-unused-classes', rule, {
         message: 'Class `testClass` is unused'
       }]
     },
+    {
+      code: `const useStyles = makeStyles()({
+        testClass: {
+          backgroundColor: 'red'
+        }
+      })
+      
+      const Component = () => {
+        const { classes } = useStyles()
+        return <div>test</div>
+      }`,
+      errors: [{
+        message: 'Class `testClass` is unused'
+      }]
+    },
   ],
 });
