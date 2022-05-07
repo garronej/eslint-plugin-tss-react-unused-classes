@@ -11,19 +11,30 @@ This eslint plugin lets you detect unused [tss-react](https://tss-react.dev) cla
 yarn add --dev eslint-plugin-tss-unused-classes
 ```
 
-2. Add it at the end of your plugin list in your `.eslintrc.js`:
-```js
-module.exports = {
-  // ...
-  plugins: [
-    // ...
-    'tss-unused-classes'
-  ]
+2. Enable it in you ESLint config
+
+**Case 1**: You are in a [`create-react-app`](https://create-react-app.dev/) project:  
+Edit your `package.json`:  
+
+```jsonc
+{
+  //...
+  "eslintConfig": {
+    "plugins": [
+      //...
+      "tss-unused-classes"
+    ],
+    "rules": {
+      "tss-unused-classes/unused-classes": "warn"
+    }
+  },
+  //...
 }
 ```
+[Example projet](https://github.com/InseeFrLab/onyxia-web)
 
-That's it! You should now get a warning if you have unused classes. One could also make it an error by adding the actual rule to the `rule` entry in `.eslintrc.js`:
-
+**Case 2**: You have installed ESLint manually:  
+Edit your `.eslintrc.js` file:  
 ```js
 module.exports = {
   // ...
@@ -32,7 +43,12 @@ module.exports = {
     'tss-unused-classes'
   ],
   rules: {
-    'tss-unused-classes/unused-classes': 2
+    // ...
+    'tss-unused-classes/unused-classes': 'warn'
   }
 }
 ```
+[Example project](https://github.com/InseeFrLab/onyxia-ui)
+
+
+
