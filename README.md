@@ -2,7 +2,8 @@
 
 This eslint plugin lets you detect unused [tss-react](https://tss-react.dev) classes:
 
-![Example image of the rule working](./.github/preview.png)
+https://user-images.githubusercontent.com/6702424/167231369-4eaeb5b2-bb39-4647-9911-086572c5e212.mov
+
 
 # Usage
 
