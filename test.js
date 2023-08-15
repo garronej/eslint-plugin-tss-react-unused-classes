@@ -20,11 +20,11 @@ ruleTester.run('warn-unused-classes', rule, {
       const { classes } = useStyles()
       return <div className={classes.testClass}>test</div>
     }`,
-    `const useStyles = makeStyles()(() => ({
+    `const useStyles = makeStyles()({
       testClass: {
         "backgroundColor": 'red'
       }
-    }))
+    })
     
     const Component = () => {
       const { classes } = useStyles()
