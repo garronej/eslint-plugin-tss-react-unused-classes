@@ -15,7 +15,6 @@ ruleTester.run('warn-unused-classes', rule, {
         backgroundColor: 'red'
       }
     }))
-    
     const Component = () => {
       const { classes } = useStyles()
       return <div className={classes.testClass}>test</div>
@@ -25,7 +24,6 @@ ruleTester.run('warn-unused-classes', rule, {
         "backgroundColor": 'red'
       }
     })
-    
     const Component = () => {
       const { classes } = useStyles()
       return <div className={classes.testClass}>test</div>
@@ -38,7 +36,6 @@ ruleTester.run('warn-unused-classes', rule, {
           backgroundColor: 'red'
         }
       }))
-      
       const Component = () => {
         const { classes } = useStyles()
         return <div>test</div>
@@ -53,7 +50,6 @@ ruleTester.run('warn-unused-classes', rule, {
           backgroundColor: 'red'
         }
       })
-      
       const Component = () => {
         const { classes } = useStyles()
         return <div>test</div>
