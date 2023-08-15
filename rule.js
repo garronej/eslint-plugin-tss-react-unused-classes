@@ -33,13 +33,33 @@ module.exports = {
 
     return {
       CallExpression(node) {
-        if (node.callee.name !== 'makeStyles') {
+
+        const isMakeStyles = node.callee.name === 'makeStyles';
+
+        const isCreateUseStyles = (
+          node.callee.type === 'MemberExpression' &&
+          node.callee.property.name === 'createUseStyles'
+        );
+
+        if (!isMakeStyles && !isCreateUseStyles) {
           return;
         }
 
         const stylesObj = (() => {
 
-          const styles = node.parent.arguments[0];
+          const styles = (() => {
+
+            if (isMakeStyles) {
+              return node.parent.arguments[0];
+            }
+
+            if (isCreateUseStyles) {
+              return node.callee.parent.arguments[0];
+            }
+
+            throw new Error("never");
+
+          })();
 
           if (!styles) {
             return undefined;
