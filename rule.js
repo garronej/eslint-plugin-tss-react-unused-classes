@@ -38,7 +38,8 @@ module.exports = {
 
         const isCreateUseStyles = (
           node.callee.type === 'MemberExpression' &&
-          node.callee.property.name === 'createUseStyles'
+          node.callee.property.name === 'createUseStyles' &&
+          getBaseIdentifier(node.callee.object)?.name === "tss"
         );
 
         if (!isMakeStyles && !isCreateUseStyles) {
@@ -189,4 +190,16 @@ module.exports = {
       },
     };
   },
+}
+
+
+// Helper function to recursively get the base identifier from a MemberExpression node
+function getBaseIdentifier(node) {
+  if (node.type === 'Identifier') {
+    return node;
+  } else if (node.type === 'MemberExpression') {
+    return getBaseIdentifier(node.object);
+  } else {
+    return null;
+  }
 }
