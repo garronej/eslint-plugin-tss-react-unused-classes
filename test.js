@@ -29,7 +29,7 @@ ruleTester.run('warn-unused-classes', rule, {
       return <div className={classes.testClass}>test</div>
     }`,
 
-    `const useStyles = tss.createUseStyles(() => ({
+    `const useStyles = tss.create(() => ({
       testClass: {
         backgroundColor: 'red'
       }
@@ -38,7 +38,7 @@ ruleTester.run('warn-unused-classes', rule, {
       const { classes } = useStyles()
       return <div className={classes.testClass}>test</div>
     }`,
-    `const useStyles = tss.createUseStyles({
+    `const useStyles = tss.create({
       testClass: {
         "backgroundColor": 'red'
       }
@@ -81,7 +81,7 @@ ruleTester.run('warn-unused-classes', rule, {
 
 
     {
-      code: `const useStyles = tss.createUseStyles(() => ({
+      code: `const useStyles = tss.create(() => ({
         testClass: {
           backgroundColor: 'red'
         }
@@ -95,7 +95,7 @@ ruleTester.run('warn-unused-classes', rule, {
       }]
     },
     {
-      code: `const useStyles = tss.createUseStyles({
+      code: `const useStyles = tss.create({
         testClass: {
           backgroundColor: 'red'
         }

@@ -36,13 +36,13 @@ module.exports = {
 
         const isMakeStyles = node.callee.name === 'makeStyles';
 
-        const isCreateUseStyles = (
+        const isModernApi = (
           node.callee.type === 'MemberExpression' &&
-          node.callee.property.name === 'createUseStyles' &&
+          node.callee.property.name === 'create' &&
           getBaseIdentifier(node.callee.object)?.name === "tss"
         );
 
-        if (!isMakeStyles && !isCreateUseStyles) {
+        if (!isMakeStyles && !isModernApi) {
           return;
         }
 
@@ -54,7 +54,7 @@ module.exports = {
               return node.parent.arguments[0];
             }
 
-            if (isCreateUseStyles) {
+            if (isModernApi) {
               return node.callee.parent.arguments[0];
             }
 
