@@ -47,7 +47,6 @@ ruleTester.run('warn-unused-classes', rule, {
       const { classes } = useStyles()
       return <div className={classes.testClass}>test</div>
     }`
-
   ],
   invalid: [
     {
@@ -96,6 +95,20 @@ ruleTester.run('warn-unused-classes', rule, {
     },
     {
       code: `const useStyles = tss.create({
+        testClass: {
+          backgroundColor: 'red'
+        }
+      })
+      const Component = () => {
+        const { classes } = useStyles()
+        return <div>test</div>
+      }`,
+      errors: [{
+        message: 'Class `testClass` is unused'
+      }]
+    },
+    {
+      code: `const useStyles = tss.withName("Component").create({
         testClass: {
           backgroundColor: 'red'
         }

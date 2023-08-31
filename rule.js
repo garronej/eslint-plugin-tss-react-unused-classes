@@ -197,6 +197,8 @@ module.exports = {
 function getBaseIdentifier(node) {
   if (node.type === 'Identifier') {
     return node;
+  } else if (node.type === 'CallExpression') {
+    return getBaseIdentifier(node.callee);
   } else if (node.type === 'MemberExpression') {
     return getBaseIdentifier(node.object);
   } else {
