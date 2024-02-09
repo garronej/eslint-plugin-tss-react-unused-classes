@@ -127,7 +127,7 @@ module.exports = {
       },
 
       MemberExpression(node) {
-        if (node.object.type === 'Identifier') {
+        if (node.object.type === 'Identifier' && node.object.name) {
           const whichClass = getBasicIdentifier(node.property);
           if (whichClass) {
             usedClasses[whichClass] = true;
