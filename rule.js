@@ -131,7 +131,7 @@ module.exports = {
       },
 
       MemberExpression(node) {
-        if (node.object.type === 'Identifier' && (allowRenamedClasses || node.object.name === 'classes')) {
+        if (node.object.type === 'Identifier' && (node.object.name === 'classes' || (allowRenamedClasses && node.object.name))) {
           const whichClass = getBasicIdentifier(node.property);
           if (whichClass) {
             usedClasses[whichClass] = true;
